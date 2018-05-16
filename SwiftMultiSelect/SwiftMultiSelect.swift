@@ -109,6 +109,8 @@ public class SwiftMultiSelect{
 /// Public struct for configuration and customizations
 public struct Config {
 
+    /// Size to enable button done
+    public static var sizeEnableMoreThan    :   Int        = 0
     /// Background of main view
     public static var mainBackground        :   UIColor    = UIColor.white
     /// View's title
@@ -130,8 +132,6 @@ public struct Config {
     
     /// Define the style of tableview
     public struct tableStyle{
-        /// Size to enable button done
-        public static var sizeEnableMoreThan    :   Int        = 0
         //Background color of tableview
         public static var backgroundColor       :   UIColor = .white
         //Height of single row
