@@ -52,7 +52,7 @@ public class SwiftMultiSelect{
     public static var initialSelected   :   [SwiftMultiSelectItem] = [SwiftMultiSelectItem]()
     
     /// navController to show and dismiss MultiSelection
-    internal static var navController   :   UINavigationController()
+    internal static var navController   :   UINavigationController = UINavigationController()
     
     
     /// Function to present a selector in a UIViewContoller claass
