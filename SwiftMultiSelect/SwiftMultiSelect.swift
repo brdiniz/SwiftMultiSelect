@@ -77,7 +77,13 @@ public class SwiftMultiSelect{
     /// Function to dismiss a selector
     ///
     public class func dismiss() {
+        
+        // Dismiss selector
         navController.dismiss(animated: true, completion: nil)
+        
+        // Call delegate
+        delegate?.didCloseSwiftMultiSelect()
+        
     }
     
     private class func getContacts(){
