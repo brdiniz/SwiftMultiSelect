@@ -51,6 +51,9 @@ public class SwiftMultiSelect{
     /// Array of initial items selected
     public static var initialSelected   :   [SwiftMultiSelectItem] = [SwiftMultiSelectItem]()
     
+    /// navController to show and dismiss MultiSelection
+    internal static var navController   :   UINavigationController()
+    
     
     /// Function to present a selector in a UIViewContoller claass
     ///
@@ -64,11 +67,17 @@ public class SwiftMultiSelect{
         selector.selectedItems  = initialSelected
         
         //Create navigation controller
-        let navController       = UINavigationController(rootViewController: selector)
+        navController .         = UINavigationController(rootViewController: selector)
         
         // Present selectora
         to.present(navController, animated: true, completion: nil)
         
+    }
+    
+    /// Function to dismiss a selector
+    ///
+    public class func dismiss() {
+        navController.dismiss(animated: true, completion: nil)
     }
     
     private class func getContacts(){
