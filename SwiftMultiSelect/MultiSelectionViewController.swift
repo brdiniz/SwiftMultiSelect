@@ -30,7 +30,7 @@ class MultiSelecetionViewController: UIViewController,UIGestureRecognizerDelegat
         didSet{
             //Reset button navigation bar
             rightButtonBar.title = "\(Config.doneString) (\(self.selectedItems.count))"
-            self.navigationItem.rightBarButtonItem?.isEnabled = (self.selectedItems.count > 0)
+            self.navigationItem.rightBarButtonItem?.isEnabled = (self.selectedItems.count > Config.sizeEnableMoreThan)
         }
     }
     
