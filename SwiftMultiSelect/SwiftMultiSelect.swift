@@ -67,7 +67,7 @@ public class SwiftMultiSelect{
         selector.selectedItems  = initialSelected
         
         //Create navigation controller
-        navController .         = UINavigationController(rootViewController: selector)
+        navController           = UINavigationController(rootViewController: selector)
         
         // Present selectora
         to.present(navController, animated: true, completion: nil)
