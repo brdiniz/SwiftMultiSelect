@@ -130,7 +130,8 @@ public struct Config {
     
     /// Define the style of tableview
     public struct tableStyle{
-        
+        /// Size to enable button done
+        public static var sizeEnableMoreThan    :   Int        = 0
         //Background color of tableview
         public static var backgroundColor       :   UIColor = .white
         //Height of single row
