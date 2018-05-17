@@ -320,7 +320,8 @@ public protocol SwiftMultiSelectDelegate{
     /// Tell to delegate user has closed without select
     func userDidSearch(searchString:String)
     
-    
+    /// Tell to delegate that done
+    func willDoneSwiftMultiSelect()
 }
 
 // MARK: - UIImageView
