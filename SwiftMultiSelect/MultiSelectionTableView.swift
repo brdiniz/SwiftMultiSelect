@@ -89,7 +89,7 @@ extension MultiSelecetionViewController:UITableViewDelegate,UITableViewDataSourc
                 cell.initials.isHidden      = false
                 cell.imageAvatar.isHidden   = true
             }else{
-                if item.imageURL != ""{
+                if item.imageURL != "" && item.imageURL != nil {
                     cell.initials.isHidden      = true
                     cell.imageAvatar.isHidden   = false
                     cell.imageAvatar.setImageFromURL(stringImageUrl: item.imageURL!)

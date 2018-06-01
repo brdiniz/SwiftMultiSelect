@@ -51,39 +51,34 @@ public class SwiftMultiSelect{
     /// Array of initial items selected
     public static var initialSelected   :   [SwiftMultiSelectItem] = [SwiftMultiSelectItem]()
     
-    /// navController to show and dismiss MultiSelection
-    internal static var navController   :   UINavigationController = UINavigationController()
+    /// create instance of selector
+    internal static var selector        :   MultiSelecetionViewController = MultiSelecetionViewController()
     
     
     /// Function to present a selector in a UIViewContoller claass
     ///
     /// - Parameter to: UIViewController current visibile
     public class func Show(to: UIViewController) {
-
-        // Create instance of selector
-        let selector            = MultiSelecetionViewController()
-        
+        selector                    = MultiSelecetionViewController()
         // Set initial items
-        selector.selectedItems  = initialSelected
+        selector.selectedItems      = initialSelected
         
         //Create navigation controller
-        navController           = UINavigationController(rootViewController: selector)
+        let navController           = UINavigationController(rootViewController: selector)
         
         // Present selectora
         to.present(navController, animated: true, completion: nil)
         
     }
+  
+    public class func forceReloadData() {
+        selector.tableView.reloadData()
+    }
     
     /// Function to dismiss a selector
     ///
     public class func dismiss() {
-        
-        // Dismiss selector
-        navController.dismiss(animated: true, completion: nil)
-        
-        // Call delegate
-        delegate?.didCloseSwiftMultiSelect()
-        
+        selector.selectionDidEnd()
     }
     
     private class func getContacts(){
@@ -229,7 +224,7 @@ public struct SwiftMultiSelectItem{
     ///   - image: image asset
     ///   - imageURL: image url
     ///   - userInfo: optional information data
-    public init(row:Int,title:String,description:String? = nil,image:UIImage? = nil,imageURL:String? = nil,color:UIColor? = nil, userInfo:Any? = nil) {
+    public init(row:Int,title:String,description:String? = nil,image:UIImage? = nil,color:UIColor? = nil, userInfo:Any? = nil) {
         
         self.title = title
         self.row   = row
@@ -240,9 +235,9 @@ public struct SwiftMultiSelectItem{
         if let img = image{
             self.image = img
         }
-        if let url = imageURL{
-            self.imageURL = url
-        }
+//        if let url = imageURL{
+//            self.imageURL = url
+//        }
         if let info = userInfo{
             self.userInfo = info
         }
@@ -319,6 +314,7 @@ public protocol SwiftMultiSelectDelegate{
     
     /// Tell to delegate user has closed without select
     func userDidSearch(searchString:String)
+    
     
 }
 
